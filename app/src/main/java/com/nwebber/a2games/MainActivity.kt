@@ -14,7 +14,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
         gamesCounter = 0
-        gamesCounterNumber.setText(gamesCounter)
+        gamesCounterNumber = findViewById(R.id.times_played_counter)
+        gamesCounterNumber.setText(gamesCounter.toString())
+
+        if (savedInstanceState == null){
+            supportFragmentManager.beginTransaction().replace(R.id.frameLayout, CardsFragment.newInstance()).commitNow()
+        }
+
     }
 }

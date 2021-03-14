@@ -7,6 +7,9 @@ import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
 import android.widget.Button
 import android.widget.ImageButton
@@ -14,8 +17,9 @@ import com.nwebber.a2games.model.Card
 import com.nwebber.a2games.model.CardModel
 import android.widget.Toast
 import androidx.core.animation.addListener
+import androidx.fragment.app.Fragment
 
-class CardsFragment : AppCompatActivity() {
+class CardsFragment : Fragment() {
     private lateinit var cardLeft: ImageButton
     private lateinit var cardRight: ImageButton
     private lateinit var cardCenter: ImageButton
@@ -25,16 +29,19 @@ class CardsFragment : AppCompatActivity() {
 
     private lateinit var aceCard: Card
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_cards, container, false)
+    }
 
-        cardLeft = findViewById(R.id.card_left)
-        cardRight = findViewById(R.id.card_right)
-        cardCenter = findViewById(R.id.card_center)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        playButton = findViewById(R.id.button_play)
-        resetButton = findViewById(R.id.button_reset)
+        cardLeft = view.findViewById(R.id.card_left)
+        cardRight = view.findViewById(R.id.card_right)
+        cardCenter = view.findViewById(R.id.card_center)
+
+        playButton = view.findViewById(R.id.button_play)
+        resetButton = view.findViewById(R.id.button_reset)
 
         resetButton.isEnabled = false
         playButton.isEnabled = true
@@ -202,5 +209,6 @@ class CardsFragment : AppCompatActivity() {
         const val CARD_SLIDE_DURATION = 500L
         const val CARD_RESET_DURATION = 200L
         const val CARD_FLIP_DURATION = 200L
+        fun newInstance() = CardsFragment()
     }
 }
