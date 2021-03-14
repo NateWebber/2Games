@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">2 Games</string>
+    <string name="play_text">play</string>
+    <string name="reset_text">reset</string>
+    <string name="start_card_text">Cards</string>
+    <string name="start_ttt_text">Tic Tac Toe</string>
+</resources>
