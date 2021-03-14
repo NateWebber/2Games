@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         gamesCounter++
         gamesCounterNumber.setText(gamesCounter.toString())
     }
-    enum class current_game{
+    /*enum class current_game{
         CARDS, TTT;
-    }
+    }*/
 }
