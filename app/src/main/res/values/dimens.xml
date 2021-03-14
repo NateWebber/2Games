@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="ttt_btn_margin">2dp</dimen>
+    <dimen name="ttt_btn_edge">120dp</dimen>
+    <dimen name="ttt_frame_edge">368dp</dimen>
 </resources>
